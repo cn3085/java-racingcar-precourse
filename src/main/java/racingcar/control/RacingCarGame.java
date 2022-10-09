@@ -2,6 +2,7 @@ package racingcar.control;
 
 import java.util.Arrays;
 import racingcar.model.Cars;
+import racingcar.model.Turn;
 import racingcar.view.GameView;
 
 public class RacingCarGame implements Game {
@@ -10,6 +11,7 @@ public class RacingCarGame implements Game {
 
     private final GameView view;
     private Cars cars;
+    private Turn turn;
 
     public RacingCarGame(GameView gameView) {
         this.view = gameView;
@@ -18,6 +20,7 @@ public class RacingCarGame implements Game {
     @Override
     public void init() {
         initCar();
+        initTurn();
     }
 
     private void initCar() {
@@ -27,6 +30,24 @@ public class RacingCarGame implements Game {
         } catch (IllegalArgumentException iae) {
             view.responseError(iae);
             initCar();
+        }
+    }
+
+    private void initTurn() {
+        String turn = view.inputTurn();
+        try {
+            this.turn = new Turn(turnToInt(turn));
+        } catch (IllegalArgumentException iae) {
+            view.responseError(iae);
+            initTurn();
+        }
+    }
+
+    private int turnToInt(String turn){
+        try{
+            return Integer.valueOf(turn);
+        }catch (NumberFormatException nfe){
+            throw new IllegalArgumentException("회수는 숫자로 입력해주세요.");
         }
     }
 

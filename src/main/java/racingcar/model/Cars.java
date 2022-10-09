@@ -32,7 +32,27 @@ public class Cars {
         }
     }
 
-    public Collection<Car> getCars(){
+    public Collection<Car> getCars() {
         return this.cars;
+    }
+
+    public List<Car> getWinner() {
+        int farthestPosition = findFarthestPosition();
+        List<Car> winnerCars = new ArrayList<>();
+        for (Car car : cars) {
+            gatherWinnerCar(farthestPosition, winnerCars, car);
+        }
+        return winnerCars;
+    }
+
+    private static void gatherWinnerCar(int farthestPosition, List<Car> winnerCars, Car car) {
+        if (car.getPosition() == farthestPosition) {
+            winnerCars.add(car);
+        }
+    }
+
+    private int findFarthestPosition() {
+        cars.sort((car1, car2) -> car2.getPosition() - car1.getPosition());
+        return cars.get(0).getPosition();
     }
 }

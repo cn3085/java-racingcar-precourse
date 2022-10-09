@@ -59,6 +59,7 @@ public class RacingCarGame implements Game {
             view.showGameProgress(cars);
             turn.next();
         }
+        view.responseWinner(cars.getWinner());
     }
 
     @Override

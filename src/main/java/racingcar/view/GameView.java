@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import java.util.List;
+import racingcar.model.Car;
 import racingcar.model.Cars;
 
 public interface GameView {
@@ -12,4 +14,6 @@ public interface GameView {
     void showGameProgress(Cars cars);
 
     void notifyStartGame();
+
+    void responseWinner(List<Car> cars);
 }

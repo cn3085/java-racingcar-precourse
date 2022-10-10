@@ -43,10 +43,10 @@ public class RacingCarGame implements Game {
         }
     }
 
-    private int turnToInt(String turn){
-        try{
+    private int turnToInt(String turn) {
+        try {
             return Integer.parseInt(turn);
-        }catch (NumberFormatException nfe){
+        } catch (NumberFormatException nfe) {
             throw new IllegalArgumentException("회수는 숫자로 입력해주세요.");
         }
     }
@@ -54,7 +54,7 @@ public class RacingCarGame implements Game {
     @Override
     public void start() {
         view.notifyStartGame();
-        while(turn.hasNextTurn()){
+        while (turn.hasNextTurn()) {
             cars.moveAll();
             view.showGameProgress(cars);
             turn.next();

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class CarTest {
 
     @Test
-    void 자동차이름_입력받아_자동차_만들기(){
+    void 자동차이름_입력받아_자동차_만들기() {
         Car car = new Car(new CarName("빨간차"));
         assertEquals(car.getCarName(), "빨간차");
     }
@@ -25,7 +25,7 @@ public class CarTest {
     }
 
     @Test
-    void 자동차_정지(){
+    void 자동차_정지() {
         Car car1 = new Car(new CarName("빨간차"), new Drive(() -> 0));
         car1.drive();
         assertEquals(car1.getPosition(), Drive.STOP_POINT);
@@ -34,8 +34,9 @@ public class CarTest {
         car2.drive();
         assertEquals(car2.getPosition(), Drive.STOP_POINT);
     }
+
     @Test
-    void 자동차_진행(){
+    void 자동차_진행() {
         Car car1 = new Car(new CarName("빨간차"), new Drive(() -> 9));
         car1.drive();
         assertEquals(car1.getPosition(), Drive.MOVE_POINT);

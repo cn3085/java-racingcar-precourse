@@ -6,7 +6,7 @@ public class CarName {
     private final String name;
 
     public CarName(String name) {
-        if(name == null || name.length() > CAR_NAME_MAX_LENGTH){
+        if (name == null || name.length() > CAR_NAME_MAX_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 1글자 이상, 5글자 이하여야합니다!");
         }
         this.name = name.trim();

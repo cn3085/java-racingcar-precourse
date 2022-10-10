@@ -20,7 +20,7 @@ public class Car {
         return this.carName.getName();
     }
 
-    public void drive(){
+    public void drive() {
         this.carPosition.movePosition(drive.move());
     }
 
